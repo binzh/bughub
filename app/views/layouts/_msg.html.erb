@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    <%-if not notice.nil?%>
+    $(function () {
+        $.pnotify({
+            text: '<%= notice %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'success'
+        });
+    });
+    <%-end%>
+    <%-if not alert.nil?%>
+    <%-if alert.kind_of?(Array)%>
+    <%-alert.to_ary.each do |a|%>
+    $(function () {
+        $.pnotify({
+            text: '<%= a %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'error'
+        });
+    });
+    <%-end%>
+    <%-else%>
+    $(function () {
+        $.pnotify({
+            text: '<%= alert %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'error'
+        });
+    });
+    <%-end%>
+    <%-end%>
+</script>

@@ -1,0 +1,22 @@
+<div class="page-header" align="center">
+  <h1><%= t('devise.views.unlocks.new.title') %></h1>
+</div>
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => {:method => :post}) do |f| %>
+    <%- if not devise_error_messages!.empty? %>
+        <div class="alert alert-error">
+          <%= devise_error_messages! %>
+        </div>
+    <%- end %>
+    <div align="center">
+      <table>
+        <tr>
+          <td><%= f.label :login %></td>
+          <td><%= f.email_field :login %></td>
+        </tr>
+        <tr>
+          <td><%= render "devise/shared/links" %></td>
+          <td align="right"><%= f.submit t('devise.views.unlocks.new.submit'), :class => "btn btn-primary" %></td>
+        </tr>
+      </table>
+    </div>
+<% end %>

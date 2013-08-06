@@ -1,0 +1,29 @@
+zh-CN:
+  activerecord:
+#模块
+    models:
+      user: 用户
+#字段
+    attributes:
+      user:
+        id: 编号
+        login: 用户名/电子邮箱
+        email: 电子邮箱
+        username: 用户名
+        password: 密码
+        password_confirmation: 确认密码
+        current_password: 当前密码
+        remember_me: 记住我
+        reset_password_sent_at: 重置密码发送于
+        remember_created_at: 记住用户开始时间
+        sign_in_count: 登录次数
+        current_sign_in_at: 本次登录时间
+        last_sign_in_at: 上次登录时间
+        current_sign_in_ip: 本次登录
+        last_sign_in_ip: 上次登录IP
+        confirmation_token: 用户验证密钥
+        confirmed_at: 用户验证时间
+        confirmation_sent_at: 验证发送时间
+        admin: 管理员
+        created_at: 创建时间
+        updated_at: 最近更新

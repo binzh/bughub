@@ -1,0 +1,15 @@
+<p>
+  <%= @resource.username %>!
+</p>
+<p>
+  <%= t('devise.mailer.unlock_instructions.subject') %>
+</p>
+<p>
+  <%= link_to t('devise.mailer.reset_password_instructions.unlock_account'), unlock_url(@resource, :unlock_token => @resource.unlock_token) %>
+</p>
+<p>
+  <%= t('devise.mailer.reset_password_instructions.copy_the_link') %>:
+</p>
+<p>
+  <%= unlock_url(@resource, :unlock_token => @resource.unlock_token) %>
+</p>

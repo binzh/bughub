@@ -1,0 +1,26 @@
+<div class="page-header" align="center">
+  <h1><%= t('devise.views.sessions.new.title') %></h1>
+</div>
+<div align="center">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <table>
+        <tr>
+          <td><%= f.label :login %></td>
+          <td><%= f.text_field :login, :autocomplete => "off" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password %></td>
+          <td><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <td><%= render "devise/shared/links" %></td>
+          <td align="right">
+            <%- if devise_mapping.rememberable? -%>
+                <label class="checkbox inline"><%= f.check_box :remember_me, :checked => true %><%= f.label :remember_me %> </label>
+            <%- end %>
+            <br/>
+            <%= f.submit t('devise.views.sessions.new.submit'), :class => "btn btn-primary" %></td>
+        <tr>
+  <% end %>
+  </table>
+</div>

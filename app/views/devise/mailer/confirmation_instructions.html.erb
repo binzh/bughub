@@ -1,0 +1,15 @@
+<p>
+  <%= @resource.username %>, <%= t('devise.mailer.confirmation_instructions.appreciate_for_reg') %>!
+</p>
+<p>
+  <%= t('devise.mailer.confirmation_instructions.subject') %>
+</p>
+<p>
+  <%= link_to t('devise.mailer.confirmation_instructions.confirm_account'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+</p>
+<p>
+  <%= t('devise.mailer.confirmation_instructions.copy_the_link') %>:
+</p>
+<p>
+  <%= confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+</p>

@@ -1,0 +1,38 @@
+<div class="page-header" align="center">
+  <h1><%= t('devise.views.registrations.edit.title') %></h1>
+</div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
+    <%- if not devise_error_messages!.empty? %>
+        <div class="alert alert-error">
+          <%= devise_error_messages! %>
+        </div>
+    <%- end %>
+    <div align="center">
+      <table>
+        <tr>
+          <td><%= f.label :username %></td>
+          <td><%= f.text_field :username %></td>
+        </tr>
+        <td><%= f.label :email %></td>
+        <td><%= f.email_field :email, :readonly => true %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password %></td>
+          <td><%= f.password_field :password, :autocomplete => "off", :placeholder => t('devise.views.registrations.edit.change_pass_tip') %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation %></td>
+          <td><%= f.password_field :password_confirmation, :placeholder => t('devise.views.registrations.edit.change_pass_tip') %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :current_password %></td>
+          <td><%= f.password_field :current_password %></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right"><%= f.submit t('devise.views.registrations.edit.submit'), :class => "btn btn-primary" %>
+            <br/>
+            <%= link_to t('back'), :back %></td>
+        </tr>
+      </table>
+    </div>
+<% end %>

@@ -1,0 +1,47 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.chzn-container-single .chzn-single {
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #aaaaaa;
+}
+
+.hr {
+    height: 3px;
+    border: none;
+    border-top: 3px double #CCCCCC;
+}
+
+.has-border {
+    border: 1px solid #CCCCCC;
+}
+
+.bg-color-f5 {
+    background-color: #F5F5F5;
+}
+
+.inline {
+    display: inline
+}
+
+site-title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 130%;
+}
+
+color-title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 130%;
+    color: #d62c1a;
+}
+
+site-copyright {
+    font-family: 'Lily Script One', cursive;
+}
+
+.input-500 {
+    width: 500px;
+}

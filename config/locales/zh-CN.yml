@@ -1,0 +1,11 @@
+zh-CN:
+  site_name: BugHub
+  copy_right: Copyright © 2013 BugHub Corporation. All rights reserved.
+  r_u_sure: 你确定吗？
+  back: 返回
+  site_admin: 网站管理
+  unauthorized:
+    default: 您未被允许访问此网址
+  user:
+    config: 设置
+    profile: 用户信息
