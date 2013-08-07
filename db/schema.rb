@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806082120) do
+ActiveRecord::Schema.define(:version => 20130807080941) do
+
+  create_table "bugs", :force => true do |t|
+    t.string   "summary"
+    t.integer  "status_id"
+    t.integer  "priority_id"
+    t.integer  "user_id"
+    t.integer  "owner"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "bugs", ["priority_id"], :name => "index_bugs_on_priority_id"
+  add_index "bugs", ["status_id"], :name => "index_bugs_on_status_id"
+  add_index "bugs", ["user_id"], :name => "index_bugs_on_user_id"
+
+  create_table "field_types", :force => true do |t|
+    t.string   "type_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "priorities", :force => true do |t|
+    t.string   "priority_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -25,6 +52,22 @@ ActiveRecord::Schema.define(:version => 20130806082120) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "statuses", :force => true do |t|
+    t.string   "status_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "user_fields", :force => true do |t|
+    t.string   "field_name"
+    t.integer  "field_type_id"
+    t.boolean  "required"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "user_fields", ["field_type_id"], :name => "index_user_fields_on_field_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

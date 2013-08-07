@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  field_name: MyString
+  field_type: 
+  required: false
+
+two:
+  field_name: MyString
+  field_type: 
+  required: false

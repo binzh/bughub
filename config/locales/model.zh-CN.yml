@@ -3,10 +3,49 @@ zh-CN:
 #模块
     models:
       user: 用户
+      status: 状态
+      priority: 优先级
+      bug: 缺陷
+      field_type: 字段类型
+      user_field: 用户字段
 #字段
     attributes:
+      user_field:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        field_name: 字段名称
+        field_type: 字段类型
+        required: 是否必填
+      field_type:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        type_name: 类型名称
+      bug:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        summary: 摘要
+        status: 状态
+        priority: 优先级
+        user: 报告人
+        owner: 责任人
+        description: 描述
+      priority:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        priority_name: 优先级名称
+      status:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        status_name: 状态名称
       user:
         id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
         login: 用户名/电子邮箱
         email: 电子邮箱
         username: 用户名
@@ -25,5 +64,4 @@ zh-CN:
         confirmed_at: 用户验证时间
         confirmation_sent_at: 验证发送时间
         admin: 管理员
-        created_at: 创建时间
-        updated_at: 最近更新
+        bug: 缺陷
