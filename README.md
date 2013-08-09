@@ -1,9 +1,11 @@
-# BugHub
-
+##BugHub
 *又一个缺陷追踪系统*
 
-设计草稿
+###目标
+    打造一个高度自定义的缺陷管理系统
+
 ---
+###设计草稿
 
 1. **bug表**
   * 摘要
@@ -28,3 +30,7 @@
 * **枚举值表**
   * 字段类型id
   * 枚举值
+
+---
+##License
+[The MIT License (MIT)](https://github.com/binzh/bughub/blob/master/LICENSE)

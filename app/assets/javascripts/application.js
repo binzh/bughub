@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require chosen-jquery
+//= require select2
+//= require select2_locale_zh-CN
 //= require pnotify
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/zh-CN
 //= require_tree .

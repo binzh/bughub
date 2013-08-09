@@ -3,10 +3,13 @@ body {
     padding-bottom: 80px;
 }
 
-.chzn-container-single .chzn-single {
-    height: 30px;
-    line-height: 30px;
-    border: 2px solid #aaaaaa;
+.select2-container {
+    margin-top: -10px;
+}
+
+.select2-container .select2-choice {
+    height: 34px;
+    line-height: 34px;
 }
 
 .hr {
@@ -44,4 +47,8 @@ site-copyright {
 
 .input-500 {
     width: 500px;
+}
+
+.input-block {
+    width: 98%;
 }

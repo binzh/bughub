@@ -17,6 +17,8 @@ Bughub::Application.routes.draw do
     get 'index'
   end
 
+  resources :bugs, :only => [:index,:create]
+
   match '/404', :to => 'errors#not_found'
   match '/422', :to => 'errors#change_rejected'
   match '/500', :to => 'errors#something_wrong'

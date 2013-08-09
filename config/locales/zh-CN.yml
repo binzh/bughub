@@ -4,8 +4,17 @@ zh-CN:
   r_u_sure: 你确定吗？
   back: 返回
   site_admin: 网站管理
+  model:
+    successfully_created: 创建成功
   unauthorized:
     default: 您未被允许访问此网址
   user:
     config: 设置
     profile: 用户信息
+  simple_captcha:
+    placeholder: 输入验证码
+    label: 输入验证码
+    wrong: 验证码输入错误
+    message:
+      default: 验证码输入错误
+      user: 验证码输入错误

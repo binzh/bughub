@@ -5,6 +5,9 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <%- if user_signed_in? %>
+              <li>
+                <%= link_to t('activerecord.models.bug'), bugs_path %>
+              </li>
               <%- if current_user.admin? %>
                   <li>
                     <%= link_to t('site_admin'), rails_admin_path %>

@@ -13,17 +13,19 @@ gem 'cancan'
 gem 'simple_form'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'mini_magick', '3.5.0'
 #gem 'wice_grid'
 gem 'rails_admin'
 gem 'bootstrap-wysihtml5-rails'
 gem 'lazy_high_charts'
-
+gem 'galetahub-simple_captcha', :require => 'simple_captcha'
 #gem 'rufus-scheduler'
 #gem 'delayed_job_active_record'
 #gem 'daemons'
 
 # Gems for css or js
-gem 'chosen-rails'
+gem 'select2-rails'
+gem 'select2-sass-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'pnotify-rails'
 group :assets do
