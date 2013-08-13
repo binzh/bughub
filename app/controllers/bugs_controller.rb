@@ -1,13 +1,14 @@
 class BugsController < ApplicationController
   def index
-    @bugs = Bug.all
-    @bug = Bug.new
+     @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
+
+    @bug=Bug.new
   end
 
   def create
     if simple_captcha_valid?
-      @bug = Bug.new(params[:bug])
-      @bug.user = current_user
+      @bug=Bug.new(params[:bug])
+      @bug.user=current_user
       if @bug.save
         redirect_to bugs_path, :flash => {:notice => t('activerecord.models.bug')+t('model.successfully_created')}
       else
@@ -18,4 +19,13 @@ class BugsController < ApplicationController
     end
   end
 
+  def query
+    @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
+    if @bugs.empty?
+      @alert = 'NULL'
+    else
+      @alert =@bugs.first.summary
+    end
+    redirect_to bugs_path, :flash => {:alert => @alert}
+  end
 end

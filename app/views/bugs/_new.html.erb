@@ -1,19 +1,13 @@
-<hr class="hr">
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".wysihtml5").wysihtml5({locale: "zh-CN"});
-        $(".select").select2({width: "element", });
-    });
-</script>
-<h3><%= t('activerecord.models.bug') %></h3>
-<%= simple_form_for @bug do |bug| %>
-    <%= bug.input :summary, :label => false, :placeholder => t('activerecord.attributes.bug.summary'), :input_html => {:class => 'input-block'} %>
-    <div class="control-group">
-      <%= bug.input_field :owner, :label => false, collection: User.all.collect { |d| [sanitize(d.username), d.id] }, :placeholder => t('activerecord.attributes.bug.owner'), :input_html => {:class => 'select'} %>
-      <%= bug.input_field :status_id, :label => false, disabled: true, collection: Status.all.collect { |d| [sanitize(d.status_name), d.id] },:selected => "OPEN", :placeholder => t('activerecord.attributes.bug.status'), :input_html => {:class => 'select'} %>
-      <%= bug.input_field :priority_id, :label => false, collection: Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, :placeholder => t('activerecord.attributes.bug.priority'), :input_html => {:class => 'select'} %>
-    </div>
-    <%= bug.input :description, :label => false, :placeholder => t('activerecord.attributes.bug.description'), :input_html => {:rows => 5, :class => 'input-block wysihtml5'} %>
-    <%= show_simple_captcha %>
-    <%= bug.button :submit, :class => 'btn btn-primary' %>
-<%- end %>
+<div class="well">
+  <%= simple_form_for @bug do |bug| %>
+      <%= bug.input :summary, :label => false, :placeholder => t('activerecord.attributes.bug.summary'), :input_html => {:class => 'input-block'} %>
+      <div class="control-group">
+        <%= bug.input_field :owner, :label => false, collection: User.all.collect { |d| [sanitize(d.username), d.id] }, :placeholder => t('activerecord.attributes.bug.owner'), :input_html => {:class => 'select'} %>
+        <%= bug.input_field :status_id, :label => false, disabled: true, collection: Status.all.collect { |d| [sanitize(d.status_name), d.id] }, :selected => "OPEN", :placeholder => t('activerecord.attributes.bug.status'), :input_html => {:class => 'select'} %>
+        <%= bug.input_field :priority_id, :label => false, collection: Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, :placeholder => t('activerecord.attributes.bug.priority'), :input_html => {:class => 'select'} %>
+      </div>
+      <%= bug.input :description, :label => false, :placeholder => t('activerecord.attributes.bug.description'), :input_html => {:rows => 5, :class => 'input-block wysihtml5'} %>
+      <%= show_simple_captcha %>
+      <%= bug.button :submit, :class => 'btn btn-primary' %>
+  <%- end %>
+</div>

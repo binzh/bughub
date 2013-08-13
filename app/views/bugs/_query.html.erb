@@ -1,0 +1,29 @@
+<div class="well">
+  <table>
+    <%= form_tag query_bugs_path do %>
+        <tr>
+          <th><%= label_tag t('activerecord.attributes.bug.id') %></th>
+          <td><%= number_field_tag :id, nil, :min => 1 %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.summary') %></th>
+          <td><%= text_field_tag :summary %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.status') %></th>
+          <td><%= select_tag :status, options_from_collection_for_select(Status.all, 'id', 'status_name'), include_blank: true, :class => 'select' %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.priority') %></th>
+          <td><%= select_tag :priority, options_from_collection_for_select(Priority.all, 'id', 'priority_name'), include_blank: true, :class => 'select' %></td>
+        </tr>
+        <tr>
+          <th><%= label_tag t('activerecord.attributes.bug.user') %></th>
+          <td><%= select_tag :user, options_from_collection_for_select(User.all, 'id', 'username'), include_blank: true, :class => 'select' %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.owner') %></th>
+          <td><%= select_tag :owner, options_from_collection_for_select(User.all, 'id', 'username'), include_blank: true, :class => 'select' %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.created_at') %></th>
+          <td><%= text_field_tag :created_at, nil, :class => 'datepicker', :id => 'datepicker' %></td>
+          <th><%= label_tag t('activerecord.attributes.bug.updated_at') %></th>
+          <td><%= text_field_tag :updated_at, nil, :class => 'datepicker', :id => 'datepicker' %></td>
+        </tr>
+        <tr>
+          <td align="center" colspan="8"><%= submit_tag t('model.query'), :class => 'btn btn-primary' %></td>
+        </tr>
+    <%- end %>
+  </table>
+</div>

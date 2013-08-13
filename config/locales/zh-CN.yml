@@ -5,7 +5,9 @@ zh-CN:
   back: 返回
   site_admin: 网站管理
   model:
+    create: 创建
     successfully_created: 创建成功
+    query: 查询
   unauthorized:
     default: 您未被允许访问此网址
   user:
