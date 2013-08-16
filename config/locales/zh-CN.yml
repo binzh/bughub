@@ -13,6 +13,8 @@ zh-CN:
   user:
     config: 设置
     profile: 用户信息
+  bug:
+    none: 没有缺陷
   simple_captcha:
     placeholder: 输入验证码
     label: 输入验证码

@@ -1,7 +1,9 @@
 class BugsController < ApplicationController
   def index
-     @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
-
+    @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
+    if not flash[:bugs].nil?
+      @bugs=flash[:bugs]
+    end
     @bug=Bug.new
   end
 
@@ -21,11 +23,11 @@ class BugsController < ApplicationController
 
   def query
     @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
-    if @bugs.empty?
-      @alert = 'NULL'
-    else
-      @alert =@bugs.first.summary
-    end
-    redirect_to bugs_path, :flash => {:alert => @alert}
+    #if @bugs.empty?
+    #  @alert = 'NULL'
+    #else
+    #  @alert =@bugs
+    #end
+    redirect_to bugs_path, :flash => {:bugs => @bugs}
   end
 end
