@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808170336) do
+ActiveRecord::Schema.define(:version => 20130826030730) do
 
   create_table "bugs", :force => true do |t|
     t.string   "summary"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20130808170336) do
 
   create_table "field_types", :force => true do |t|
     t.string   "type_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "kindeditor_assets", :force => true do |t|
+    t.string   "asset"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.integer  "owner_id"
+    t.string   "asset_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

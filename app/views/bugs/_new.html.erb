@@ -6,7 +6,7 @@
         <%= bug.input_field :status_id, :label => false, disabled: true, collection: Status.all.collect { |d| [sanitize(d.status_name), d.id] }, :selected => "OPEN", :placeholder => t('activerecord.attributes.bug.status'), :input_html => {:class => 'select'} %>
         <%= bug.input_field :priority_id, :label => false, collection: Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, :placeholder => t('activerecord.attributes.bug.priority'), :input_html => {:class => 'select'} %>
       </div>
-      <%= bug.input :description, :label => false, :placeholder => t('activerecord.attributes.bug.description'), :input_html => {:rows => 5, :class => 'input-block wysihtml5'} %>
+      <%= bug.input :description, :as => :kindeditor, :owner_id => @bug.id, :label => false, :placeholder => t('activerecord.attributes.bug.description'), :input_html => {:rows => 5, :height => 200, :class => 'input-block'} %>
       <%= show_simple_captcha %>
       <%= bug.button :submit, :class => 'btn btn-primary' %>
   <%- end %>

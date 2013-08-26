@@ -10,6 +10,7 @@ class BugsController < ApplicationController
   def create
     if simple_captcha_valid?
       @bug=Bug.new(params[:bug])
+      @bug.status=Status.find(1)
       @bug.user=current_user
       if @bug.save
         redirect_to bugs_path, :flash => {:notice => t('activerecord.models.bug')+t('model.successfully_created')}
@@ -28,6 +29,6 @@ class BugsController < ApplicationController
     #else
     #  @alert =@bugs
     #end
-    redirect_to bugs_path, :flash => {:bugs => @bugs}
+    redirect_to bugs_path, :flash => {:alert => @bugs}
   end
 end
