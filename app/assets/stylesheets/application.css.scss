@@ -8,12 +8,67 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require select2
- *= require select2_bootstrap
  *= require jquery.pnotify.default
  *= require bootstrap-wysihtml5
+ *= require bootstrap-datepicker
+ *= require select2
+ *= require select2_bootstrap
  *= require_self
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  */
+body {
+  padding-top: 45px;
+  padding-bottom: 80px;
+}
+
+.select2-container {
+  margin-top: -10px;
+}
+
+.hr {
+  height: 3px;
+  border: none;
+  border-top: 1px double #CC3300;
+}
+
+.has-border {
+  border: 1px solid #CCCCCC;
+}
+
+.bg-color-f5 {
+  background-color: #F5F5F5;
+}
+
+.inline {
+  display: inline
+}
+
+site-title {
+  font-family: 'Lily Script One', cursive;
+  font-size: 130%;
+}
+
+color-title {
+  font-family: 'Lily Script One', cursive;
+  font-size: 130%;
+  color: #d62c1a;
+}
+
+site-copyright {
+  font-family: 'Lily Script One', cursive;
+}
+
+.input-500 {
+  width: 500px;
+}
+
+.input-block {
+  width: 98%;
+}
+
+.nearly-block {
+  width: 80%;
+}
+
 @import "bootstrap";

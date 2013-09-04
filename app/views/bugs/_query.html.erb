@@ -1,29 +1,21 @@
 <div class="well">
-  <table>
-    <%= form_tag query_bugs_path do %>
-        <tr>
-          <th><%= label_tag t('activerecord.attributes.bug.id') %></th>
-          <td><%= number_field_tag :id, nil, :min => 1 %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.summary') %></th>
-          <td><%= text_field_tag :summary %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.status') %></th>
-          <td><%= select_tag :status, options_from_collection_for_select(Status.all, 'id', 'status_name'), include_blank: true, :class => 'select' %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.priority') %></th>
-          <td><%= select_tag :priority, options_from_collection_for_select(Priority.all, 'id', 'priority_name'), include_blank: true, :class => 'select' %></td>
-        </tr>
-        <tr>
-          <th><%= label_tag t('activerecord.attributes.bug.user') %></th>
-          <td><%= select_tag :user, options_from_collection_for_select(User.all, 'id', 'username'), include_blank: true, :class => 'select' %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.owner') %></th>
-          <td><%= select_tag :owner, options_from_collection_for_select(User.all, 'id', 'username'), include_blank: true, :class => 'select' %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.created_at') %></th>
-          <td><%= text_field_tag :created_at, nil, :class => 'datepicker', :id => 'datepicker' %></td>
-          <th><%= label_tag t('activerecord.attributes.bug.updated_at') %></th>
-          <td><%= text_field_tag :updated_at, nil, :class => 'datepicker', :id => 'datepicker' %></td>
-        </tr>
-        <tr>
-          <td align="center" colspan="8"><%= submit_tag t('model.query'), :class => 'btn btn-primary' %></td>
-        </tr>
-    <%- end %>
-  </table>
+  <%= simple_form_for Bug.new, :url => query_bugs_path do |bq| %>
+      <div class="control-group">
+        <%= bq.input_field :summary, :value => @condition[:summary], :placeholder => t('activerecord.attributes.bug.summary'), :class => 'input-xxlarge' %>
+      </div>
+      <div class="control-group">
+        <%= bq.input_field :status_id, :selected => @condition[:status_id], :collection => Status.all.collect { |d| [sanitize(d.status_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.status') %>
+        <%= bq.input_field :priority_id, :selected => @condition[:priority_id], :collection => Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.priority') %>
+        <%= bq.input_field :user_id, :selected => @condition[:user_id], :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.user') %>
+        <%= bq.input_field :owner, :selected => @condition[:owner], :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.owner') %>
+      </div>
+      <div class="control-group">
+        <%= bq.number_field :id, :value => @condition[:id], :placeholder => t('activerecord.attributes.bug.id'), :min => 1 %>
+        <%= bq.input_field :created_at, :value => @condition[:created_at], :placeholder => t('activerecord.attributes.bug.created_at'), :class => 'datepicker', :as => 'string' %>
+        <%= bq.input_field :updated_at, :value => @condition[:updated_at], :placeholder => t('activerecord.attributes.bug.updated_at'), :class => 'datepicker', :as => 'string' %>
+      </div>
+      <div class="control-group">
+        <%= bq.submit t('model.query'), :class => 'btn btn-primary' %>
+      </div>
+  <%- end %>
 </div>

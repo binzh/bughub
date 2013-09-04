@@ -1,15 +1,15 @@
 <%= render 'table' %>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab"><%= t('model.create')+t('activerecord.models.bug') %></a></li>
-    <li><a href="#tab2" data-toggle="tab"><%= t('model.query')+t('activerecord.models.bug') %></a></li>
+    <li class="active"><a href="#tab1" data-toggle="tab"><%= t('model.query')+t('activerecord.models.bug') %></a></li>
+    <li><a href="#tab2" data-toggle="tab"><%= t('model.create')+t('activerecord.models.bug') %></a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <%= render 'new' %>
+      <%= render 'query' %>
     </div>
     <div class="tab-pane" id="tab2">
-      <%= render 'query' %>
+      <%= render 'new' %>
     </div>
   </div>
 </div>

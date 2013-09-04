@@ -19,5 +19,7 @@
 //= require kindeditor
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/zh-CN
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .

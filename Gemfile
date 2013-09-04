@@ -25,9 +25,10 @@ gem 'galetahub-simple_captcha', :require => 'simple_captcha'
 #gem 'daemons'
 
 # Gems for css or js
+gem 'bootstrap-sass'
 gem 'select2-rails'
 gem 'select2-sass-bootstrap-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'pnotify-rails'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

@@ -3,6 +3,8 @@ class BugsController < ApplicationController
     @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
     if not flash[:bugs].nil?
       @bugs=flash[:bugs]
+      @condition=flash[:condition]
+      @sql=flash[:sql]
     end
     @bug=Bug.new
   end
@@ -23,12 +25,13 @@ class BugsController < ApplicationController
   end
 
   def query
-    @bugs=Bug.where('id like ? and summary like ?', "%#{params[:id]}%", "%#{params[:summary]}%")
-    #if @bugs.empty?
-    #  @alert = 'NULL'
-    #else
-    #  @alert =@bugs
-    #end
-    redirect_to bugs_path, :flash => {:alert => @bugs}
+    @bugs=Bug.where('summary like ?', "%#{params[:bug][:summary]}%")
+    params[:bug].each do |key, value|
+      if value!=''
+        key="date(#{key})" if key=='created_at' or key=='updated_at'
+        @bugs=@bugs.where("#{key}=?", value)
+      end
+    end
+    redirect_to bugs_path, :flash => {:bugs => @bugs, :condition => params[:bug], :sql => @bugs.to_sql}
   end
 end
