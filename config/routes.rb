@@ -19,6 +19,9 @@ Bughub::Application.routes.draw do
 
   resources :bugs, :only => [:index, :create] do
     post 'query', :on => :collection
+    resources :statuses, :only => [] do
+      get 'conversion', :on => :member
+    end
   end
 
   match '/404', :to => 'errors#not_found'

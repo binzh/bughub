@@ -4,9 +4,12 @@ zh-CN:
   r_u_sure: 你确定吗？
   back: 返回
   site_admin: 网站管理
+  operation: 操作
   model:
     create: 创建
     successfully_created: 创建成功
+    successfully_updated: 更新成功
+    cannt_be_updated: 无法更新
     query: 查询
   unauthorized:
     default: 您未被允许访问此网址

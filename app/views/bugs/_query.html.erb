@@ -1,18 +1,18 @@
 <div class="well">
   <%= simple_form_for Bug.new, :url => query_bugs_path do |bq| %>
       <div class="control-group">
-        <%= bq.input_field :summary, :value => @condition[:summary], :placeholder => t('activerecord.attributes.bug.summary'), :class => 'input-xxlarge' %>
+        <%= bq.input_field :summary, :value => (@condition[:summary] if @condition), :placeholder => t('activerecord.attributes.bug.summary'), :class => 'input-xxlarge' %>
       </div>
       <div class="control-group">
-        <%= bq.input_field :status_id, :selected => @condition[:status_id], :collection => Status.all.collect { |d| [sanitize(d.status_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.status') %>
-        <%= bq.input_field :priority_id, :selected => @condition[:priority_id], :collection => Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.priority') %>
-        <%= bq.input_field :user_id, :selected => @condition[:user_id], :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.user') %>
-        <%= bq.input_field :owner, :selected => @condition[:owner], :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.owner') %>
+        <%= bq.input_field :status_id, :selected => (@condition[:status_id] if @condition), :collection => Status.all.collect { |d| [sanitize(d.status_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.status') %>
+        <%= bq.input_field :priority_id, :selected => (@condition[:priority_id] if @condition), :collection => Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.priority') %>
+        <%= bq.input_field :user_id, :selected => (@condition[:user_id] if @condition), :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.user') %>
+        <%= bq.input_field :owner, :selected => (@condition[:owner] if @condition), :collection => User.all.collect { |d| [sanitize(d.username), d.id] }, include_blank: false, :class => 'select', :prompt => t('activerecord.attributes.bug.owner') %>
       </div>
       <div class="control-group">
-        <%= bq.number_field :id, :value => @condition[:id], :placeholder => t('activerecord.attributes.bug.id'), :min => 1 %>
-        <%= bq.input_field :created_at, :value => @condition[:created_at], :placeholder => t('activerecord.attributes.bug.created_at'), :class => 'datepicker', :as => 'string' %>
-        <%= bq.input_field :updated_at, :value => @condition[:updated_at], :placeholder => t('activerecord.attributes.bug.updated_at'), :class => 'datepicker', :as => 'string' %>
+        <%= bq.number_field :id, :value => (@condition[:id] if @condition), :placeholder => t('activerecord.attributes.bug.id'), :min => 1 %>
+        <%= bq.input_field :created_at, :value => (@condition[:created_at] if @condition), :placeholder => t('activerecord.attributes.bug.created_at'), :class => 'datepicker', :as => 'string' %>
+        <%= bq.input_field :updated_at, :value => (@condition[:updated_at] if @condition), :placeholder => t('activerecord.attributes.bug.updated_at'), :class => 'datepicker', :as => 'string' %>
       </div>
       <div class="control-group">
         <%= bq.submit t('model.query'), :class => 'btn btn-primary' %>

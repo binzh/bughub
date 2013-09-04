@@ -42,6 +42,7 @@ zh-CN:
         created_at: 创建时间
         updated_at: 最近更新
         status_name: 状态名称
+        previous_status_id: 前置状态
       user:
         id: 编号
         created_at: 创建时间

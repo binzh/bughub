@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826030730) do
+ActiveRecord::Schema.define(:version => 20130904064418) do
 
   create_table "bugs", :force => true do |t|
     t.string   "summary"
@@ -84,8 +84,9 @@ ActiveRecord::Schema.define(:version => 20130826030730) do
 
   create_table "statuses", :force => true do |t|
     t.string   "status_name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "previous_status_id"
   end
 
   create_table "user_fields", :force => true do |t|
