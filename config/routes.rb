@@ -1,6 +1,5 @@
 Bughub::Application.routes.draw do
   root :to => 'user#home'
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users, skip: :registrations
   devise_scope :user do

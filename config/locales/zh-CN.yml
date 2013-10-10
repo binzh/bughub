@@ -25,3 +25,66 @@ zh-CN:
     message:
       default: 验证码输入错误
       user: 验证码输入错误
+  devise:
+    mailer:
+      confirmation_instructions:
+        appreciate_for_reg: 感谢您注册BugHub
+        confirm_account: 点击这里，激活您的账户
+        copy_the_link: 或者拷贝下面的链接到您的浏览器地址栏
+      reset_password_instructions:
+        change_password: 点击这里，修改您的密码
+        copy_the_link: 或者拷贝下面的链接到您的浏览器地址栏
+      unlock_instructions:
+        unlock_account: 点击这里，解锁您的账户
+        copy_the_link: 或者拷贝下面的链接到您的浏览器地址栏
+    views:
+      commons:
+        sidebar:
+          title: '操作面版'
+      links:
+        sign_in: '登录'
+        sign_up: '注册'
+        forget_pass: '忘记密码?'
+        resend_confirmation: "没有收到确认指令?"
+        resend_unlock: "没有收到解锁指令?"
+        omni_auth: "用%{provider}登录"
+      confirmations:
+        new:
+          title: '重新发送确认指令'
+          submit: '重发确认邮件'
+      passwords:
+        edit:
+          title: '修改密码'
+          submit: '修改'
+          new_pass: 新密码
+          confirm_new_pass: 确认新密码
+        new:
+          title: '忘记密码'
+          submit: '发送重置邮件'
+      registrations:
+        edit:
+          title: '更改注册信息'
+          password: '修改密码'
+          submit: '修改'
+          change_pass_tip: "如果你不想改变,留下空白"
+        new:
+          title: '注册'
+          submit: '注册'
+        binding:
+          title: '绑定'
+          submit: '绑定'
+      sessions:
+        new:
+          title: '登录'
+          submit: '登录'
+          remember_me: '记住我'
+      unlocks:
+        new:
+          title: '重发解锁指令'
+          submit: '重发解锁邮件'
+    navigation:
+      sign_in: '登录'
+      sign_up: '注册'
+      sign_out: '退出'
+      change_password: '修改密码'
+      change_registration: '修改登记'

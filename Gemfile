@@ -9,6 +9,7 @@ group :development do
   gem 'better_errors'
 end
 gem 'devise'
+gem 'devise-i18n'
 gem 'cancan'
 gem 'simple_form'
 gem 'kaminari'
