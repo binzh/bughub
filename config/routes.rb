@@ -16,7 +16,7 @@ Bughub::Application.routes.draw do
     get 'index'
   end
 
-  resources :bugs, :only => [:index, :create] do
+  resources :bugs, :only => [:index, :create, :show] do
     post 'query', :on => :collection
     resources :statuses, :only => [] do
       get 'conversion', :on => :member

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904064418) do
+ActiveRecord::Schema.define(:version => 20131011071502) do
+
+  create_table "bug_extras", :force => true do |t|
+    t.string   "extra_fields"
+    t.integer  "bug_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "bug_extras", ["bug_id"], :name => "index_bug_extras_on_bug_id"
 
   create_table "bugs", :force => true do |t|
     t.string   "summary"
@@ -27,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20130904064418) do
   add_index "bugs", ["priority_id"], :name => "index_bugs_on_priority_id"
   add_index "bugs", ["status_id"], :name => "index_bugs_on_status_id"
   add_index "bugs", ["user_id"], :name => "index_bugs_on_user_id"
+
+  create_table "enum_fields", :force => true do |t|
+    t.string   "enum_text"
+    t.integer  "user_field_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "enum_fields", ["user_field_id"], :name => "index_enum_fields_on_user_field_id"
 
   create_table "field_types", :force => true do |t|
     t.string   "type_name"
@@ -49,19 +67,6 @@ ActiveRecord::Schema.define(:version => 20130904064418) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
-
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

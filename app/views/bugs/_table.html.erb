@@ -16,7 +16,7 @@
       <%- @bugs.each do |bug| %>
           <tr>
             <td><%= bug.id %></td>
-            <td><%= bug.summary %></td>
+            <th><%= link_to bug.summary, bug %></th>
             <td><%= bug.status.status_name %></td>
             <td><%= bug.priority.priority_name %></td>
             <td><%= bug.user.username %></td>

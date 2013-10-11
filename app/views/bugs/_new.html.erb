@@ -6,6 +6,25 @@
         <%= bug.input_field :status_id, :label => false, disabled: true, collection: Status.all.collect { |d| [sanitize(d.status_name), d.id] }, :selected => "OPEN", :input_html => {:class => 'select'} %>
         <%= bug.input_field :priority_id, :label => false, collection: Priority.all.collect { |d| [sanitize(d.priority_name), d.id] }, :prompt => t('activerecord.attributes.bug.priority'), :input_html => {:class => 'select'} %>
       </div>
+      <div class="control-group">
+        <%- @user_fields.each_with_index do |field, index| %>
+            <%- if index!=0 && index%5==0 %>
+                <div class="control-group"></div>
+            <%- end %>
+            <%- case field.field_type_id %>
+        <%- when 1 %>
+                <%= select_tag "uf[#{field.id}]", options_from_collection_for_select(User.all, 'id', 'username'), :class => 'select', :prompt => field.field_name %>
+            <%- when 2 %>
+                <%= select_tag "uf[#{field.id}]", options_from_collection_for_select(User.all, 'id', 'username'), :class => 'select', :prompt => field.field_name %>
+            <%- when 3 %>
+                <%= text_field_tag "uf[#{field.id}]", nil, :placeholder => field.field_name %>
+            <%- when 4 %>
+                <%= number_field_tag "uf[#{field.id}]", nil, :placeholder => field.field_name %>
+            <%- when 5 %>
+                <%= select_tag "uf[#{field.id}]", options_from_collection_for_select(EnumField.where(:user_field_id => field.id), 'id', 'enum_text'), :class => 'select', :prompt => field.field_name %>
+            <%- end %>
+        <%- end %>
+      </div>
       <%= bug.input :description, :as => :kindeditor, :owner_id => @bug.id, :label => false, :placeholder => t('activerecord.attributes.bug.description'), :input_html => {:rows => 5, :height => 200, :class => 'input-block'} %>
       <%= show_simple_captcha %>
       <%= bug.button :submit, :class => 'btn btn-primary' %>

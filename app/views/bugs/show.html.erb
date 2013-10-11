@@ -1,0 +1,17 @@
+<p class="lead"><%= @bug.id %>. <%= @bug.summary %></p>
+<span class="label label-warning" title='<%= t('activerecord.attributes.bug.status') %>'><%= Status.find(@bug.status).status_name %></span>
+<span class="label label-info" title='<%= t('activerecord.attributes.bug.priority') %>'><%= Priority.find(@bug.priority).priority_name %></span>
+<span class="label label-success" title='<%= t('activerecord.attributes.bug.user') %>'><%= get_username_by_id(@bug.user_id) %></span>
+<span class="label label-important" title='<%= t('activerecord.attributes.bug.owner') %>'><%= get_username_by_id(@bug.owner) %></span>
+<hr size=1>
+<table class="table table-condensed">
+  <%- @extra.each do |key, value| %>
+      <tr>
+        <th><%= key %></th>
+        <td width='75%'><%= value %></td>
+      </tr>
+  <%- end %>
+</table>
+<hr size=1>
+<small><p class="muted"><%= raw(@bug.description) %></p></small>
+<%= link_to t('back'), :back %>

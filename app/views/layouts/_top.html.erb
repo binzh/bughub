@@ -1,17 +1,17 @@
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <%= link_to raw('<color-title>'+t('site_name')+'</color-title>'), root_path, :class => 'brand' %>
+      <%= link_to raw('<site-title>'+t('site_name')+'</site-title>'), root_path, :class => 'brand' %>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li>
             <%= link_to t('activerecord.models.bug'), bugs_path %>
           </li>
         </ul>
-        <p class="navbar-text pull-right">
+        <p class="navbar-text pull-right muted">
           <% if user_signed_in? %>
-              <strong><%= link_to current_user.username, root_path, :title => t('user.profile') %></strong>
-              <%= link_to content_tag(:i, ' ', :class => 'icon-cogs icon-white'), edit_user_registration_path, :title => t('user.config') %>
+              <strong><%= link_to current_user.username.upcase, root_path, :title => t('user.profile') %></strong>
+              <%= link_to content_tag(:i, ' ', :class => 'icon-cogs'), edit_user_registration_path, :title => t('user.config') %>
               <%= link_to content_tag(:i, ' ', :class => 'icon-signout'), destroy_user_session_path, :method => :delete, :data => {:confirm => t('r_u_sure')}, :title => t('devise.navigation.sign_out') %>
           <% else %>
               <%= link_to content_tag(:i, ' ', :class => 'icon-signin')+t('devise.navigation.sign_in'), new_user_session_path %>
