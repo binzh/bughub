@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bug: 
+  bug_field: MyString
+  old_value: MyString
+  new_value: MyString
+  user: 
+
+two:
+  bug: 
+  bug_field: MyString
+  old_value: MyString
+  new_value: MyString
+  user: 

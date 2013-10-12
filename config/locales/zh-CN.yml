@@ -19,6 +19,8 @@ zh-CN:
     profile: 用户信息
   bug:
     none: 没有缺陷
+    user_change_value_to: "<strong>%{user}</strong>将<em>%{field}</em>从<code>%{old_value}</code>变更为<code>%{new_value}</code>."
+    user_initial_value_to: "<strong>%{user}</strong>将<em>%{field}</em>初始为<code>%{new_value}</code>."
   simple_captcha:
     placeholder: 输入验证码
     label: 输入验证码

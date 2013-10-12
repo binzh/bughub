@@ -17,6 +17,7 @@ class BugsController < ApplicationController
       @bug.user=current_user
       if @bug.save
         @bug.create_bug_extra(:extra_fields => params[:uf])
+        @bug.bug_histories.create(:user => current_user, :bug_field => :status, :new_value => @bug.status.status_name)
         redirect_to bugs_path, :flash => {:notice => t('activerecord.models.bug')+t('model.successfully_created')}
       else
         redirect_to :back, :flash => {:alert => @bug.errors.full_messages, :bug => params[:bug], :uf => params[:uf]}

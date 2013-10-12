@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131011071502) do
+ActiveRecord::Schema.define(:version => 20131012054058) do
 
   create_table "bug_extras", :force => true do |t|
     t.string   "extra_fields"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(:version => 20131011071502) do
   end
 
   add_index "bug_extras", ["bug_id"], :name => "index_bug_extras_on_bug_id"
+
+  create_table "bug_histories", :force => true do |t|
+    t.integer  "bug_id"
+    t.string   "bug_field"
+    t.string   "old_value"
+    t.string   "new_value"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bug_histories", ["bug_id"], :name => "index_bug_histories_on_bug_id"
+  add_index "bug_histories", ["user_id"], :name => "index_bug_histories_on_user_id"
 
   create_table "bugs", :force => true do |t|
     t.string   "summary"

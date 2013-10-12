@@ -1,17 +1,46 @@
 <p class="lead"><%= @bug.id %>. <%= @bug.summary %></p>
-<span class="label label-warning" title='<%= t('activerecord.attributes.bug.status') %>'><%= Status.find(@bug.status).status_name %></span>
-<span class="label label-info" title='<%= t('activerecord.attributes.bug.priority') %>'><%= Priority.find(@bug.priority).priority_name %></span>
+<span class="label label-info" title='<%= t('activerecord.attributes.bug.status') %>'><%= Status.find(@bug.status).status_name %></span>
+<span class="label label-warning" title='<%= t('activerecord.attributes.bug.priority') %>'><%= Priority.find(@bug.priority).priority_name %></span>
 <span class="label label-success" title='<%= t('activerecord.attributes.bug.user') %>'><%= get_username_by_id(@bug.user_id) %></span>
 <span class="label label-important" title='<%= t('activerecord.attributes.bug.owner') %>'><%= get_username_by_id(@bug.owner) %></span>
 <hr size=1>
-<table class="table table-condensed">
-  <%- @extra.each do |key, value| %>
-      <tr>
-        <th><%= key %></th>
-        <td width='75%'><%= value %></td>
-      </tr>
-  <%- end %>
-</table>
-<hr size=1>
-<div class='well'><p class="text-info"><%= raw(@bug.description) %></p></div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8">
+      <table class="table table-condensed">
+        <%- @extra.each do |key, value| %>
+            <tr>
+              <th><%= key %></th>
+              <td width='75%'><%= value %></td>
+            </tr>
+        <%- end %>
+      </table>
+      <div class="well">
+        <%= raw(@bug.description) %>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="btn-group">
+        <%- Status.where(:previous_status_id => @bug.status_id).each do |s| %>
+            <%= link_to s.status_name, conversion_bug_status_path(@bug, s), :class => 'btn btn-large btn-inverse' %>
+        <%- end %>
+      </div>
+      <hr>
+      <h4><%= t('activerecord.models.bug_history') %></h4>
+
+      <div>
+        <dl class="dl-horizontal">
+          <%- @bug.bug_histories.each do |history| %>
+              <dt><%= history.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dt>
+              <%- if history.old_value.nil? %>
+                  <dd><%= raw t('bug.user_initial_value_to', :user => User.find(history.user_id).username, :field => t('activerecord.attributes.bug.'+history.bug_field), :old_value => history.old_value, :new_value => history.new_value) %></dd>
+              <%- else %>
+                  <dd><%= raw t('bug.user_change_value_to', :user => User.find(history.user_id).username, :field => t('activerecord.attributes.bug.'+history.bug_field), :old_value => history.old_value, :new_value => history.new_value) %></dd>
+              <%- end %>
+          <%- end %>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
 <%= link_to t('back'), :back %>

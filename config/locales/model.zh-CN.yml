@@ -7,7 +7,19 @@ zh-CN:
       bug: 缺陷
       field_type: 字段类型
       user_field: 用户字段
+      bug_extra: 缺陷信息
+      enum_field: 枚举字段
+      bug_history: 缺陷历史
     attributes:
+      bug_history:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        bug: 缺陷
+        bug_field: 字段
+        old_value: 初始值
+        new_value: 变更值
+        user: 操作用户
       user_field:
         id: 编号
         created_at: 创建时间
