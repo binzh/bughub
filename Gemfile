@@ -31,6 +31,7 @@ gem 'select2-rails'
 gem 'select2-sass-bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'pnotify-rails'
+gem 'jquery-atwho-rails'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

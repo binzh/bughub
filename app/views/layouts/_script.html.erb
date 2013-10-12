@@ -6,5 +6,7 @@
             language: "zh-CN",
             format: "yyyy-mm-dd"
         });
+        user = <%=raw User.all.collect { |d| sanitize(d.username) }%>;
+        $('.atwho').atwho({at: "@", 'data': user});
     });
 </script>

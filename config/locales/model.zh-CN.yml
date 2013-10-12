@@ -10,7 +10,16 @@ zh-CN:
       bug_extra: 缺陷信息
       enum_field: 枚举字段
       bug_history: 缺陷历史
+      comment: 评论
     attributes:
+      comment:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+        model_name: 模型名
+        model_id: 模型编号
+        comment: 评论
+        user: 用户
       bug_history:
         id: 编号
         created_at: 创建时间

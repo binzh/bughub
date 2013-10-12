@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012054058) do
+ActiveRecord::Schema.define(:version => 20131012095139) do
 
   create_table "bug_extras", :force => true do |t|
     t.string   "extra_fields"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(:version => 20131012054058) do
   add_index "bugs", ["priority_id"], :name => "index_bugs_on_priority_id"
   add_index "bugs", ["status_id"], :name => "index_bugs_on_status_id"
   add_index "bugs", ["user_id"], :name => "index_bugs_on_user_id"
+
+  create_table "comments", :force => true do |t|
+    t.string   "model_name"
+    t.integer  "model_id"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "enum_fields", :force => true do |t|
     t.string   "enum_text"
