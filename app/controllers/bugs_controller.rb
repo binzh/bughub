@@ -6,7 +6,7 @@ class BugsController < ApplicationController
       @condition=flash[:condition]
       @sql=flash[:sql]
     end
-    @bug=Bug.new
+    @bug=Bug.new(flash[:bug])
     @user_fields=UserField.all
   end
 
@@ -19,19 +19,19 @@ class BugsController < ApplicationController
         @bug.create_bug_extra(:extra_fields => params[:uf])
         redirect_to bugs_path, :flash => {:notice => t('activerecord.models.bug')+t('model.successfully_created')}
       else
-        redirect_to :back, :flash => {:alert => @bug.errors.full_messages}
+        redirect_to :back, :flash => {:alert => @bug.errors.full_messages, :bug => params[:bug], :uf => params[:uf]}
       end
     else
-      redirect_to :back, :flash => {:alert => t('simple_captcha.wrong')}
+      redirect_to :back, :flash => {:alert => t('simple_captcha.wrong'), :bug => params[:bug], :uf => params[:uf]}
     end
   end
 
   def query
-    @bugs=Bug.where('summary like ?', "%#{params[:bug][:summary]}%")
+    @bugs=Bug.order('id desc')
     params[:bug].each do |key, value|
-      if value!=''
+      if not value.empty?
         key="date(#{key})" if key=='created_at' or key=='updated_at'
-        @bugs=@bugs.where("#{key}=?", value)
+        @bugs=@bugs.where("#{key} like ?", "%#{value}%")
       end
     end
     redirect_to bugs_path, :flash => {:bugs => @bugs, :condition => params[:bug], :sql => @bugs.to_sql}

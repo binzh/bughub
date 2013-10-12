@@ -4,6 +4,7 @@ zh-CN:
   r_u_sure: 你确定吗？
   back: 返回
   operation: 操作
+  clear: 清除
   field_type: [['用户列表',1],['组列表',2],['用户列表',3],['用户列表',4],['用户列表',5]]
   model:
     create: 创建
