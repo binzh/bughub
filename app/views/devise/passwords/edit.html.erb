@@ -1,24 +1,22 @@
 <div class="page-header" align="center">
-	<h1><%= t('devise.views.passwords.edit.title') %></h1>
+  <h1><%= t('devise.views.passwords.edit.title') %></h1>
 </div>
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-<%-if not devise_error_messages!.empty? %>
-<div class="alert alert-error">
-	<%= devise_error_messages! %>
-</div>
-<%-end%>
-<%= f.hidden_field :reset_password_token %>
-<div align="center">
-	<table>
-		<tr>
-			<td><%= f.label :password, t('devise.views.passwords.edit.new_pass') %></td><td><%= f.password_field :password %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :password_confirmation, t('devise.views.passwords.edit.confirm_new_pass') %></td><td><%= f.password_field :password_confirmation %></td>
-		</tr>
-		<tr>
-			<td><%= render "devise/shared/links" %></td><td align="right"><%= f.submit t('devise.views.passwords.edit.submit'), :class=>"btn btn-primary" %></td>
-		</tr>
-	</table>
-</div>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:method => :put}) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+    <div align="center">
+      <table>
+        <tr>
+          <td><%= f.label :password, t('devise.views.passwords.edit.new_pass') %></td>
+          <td><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation, t('devise.views.passwords.edit.confirm_new_pass') %></td>
+          <td><%= f.password_field :password_confirmation %></td>
+        </tr>
+        <tr>
+          <td><%= render "devise/shared/links" %></td>
+          <td align="right"><%= f.submit t('devise.views.passwords.edit.submit'), :class => "btn btn-primary" %></td>
+        </tr>
+      </table>
+    </div>
 <% end %>

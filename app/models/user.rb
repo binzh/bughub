@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login
   attr_accessor :login
   # attr_accessible :title, :body
-  # validates :username, :uniqueness => {:case_sensitive => false}
+  validates :username, :presence => true
+  validates :username, :uniqueness => {:case_sensitive => false}
 
   has_many :bugs
   has_many :bug_histories

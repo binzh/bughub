@@ -17,8 +17,6 @@
 //= require select2_locale_zh-CN
 //= require pnotify
 //= require kindeditor
-//= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales/zh-CN
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN
 //= require jquery.atwho

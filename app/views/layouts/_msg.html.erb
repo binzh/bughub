@@ -1,4 +1,18 @@
 <script type="text/javascript">
+    <%-if devise_error_messages?%>
+    <%-devise_error_messages!.to_ary.each do |e|%>
+    $(function () {
+        $.pnotify({
+            text: '<%= e %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'error'
+        });
+    });
+    <%-end%>
+    <%-end%>
     <%-if not notice.nil?%>
     $(function () {
         $.pnotify({

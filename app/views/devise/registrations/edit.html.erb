@@ -2,11 +2,6 @@
   <h1><%= t('devise.views.registrations.edit.title') %></h1>
 </div>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
-    <%- if not devise_error_messages!.empty? %>
-        <div class="alert alert-error">
-          <%= devise_error_messages! %>
-        </div>
-    <%- end %>
     <div align="center">
       <table>
         <tr>
