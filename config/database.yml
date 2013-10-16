@@ -16,7 +16,7 @@ development:
   pool: 5
   username: mysql
   password: mysql
-  host: 127.0.0.1
+  host: 10.132.97.97
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,7 +29,7 @@ test:
   pool: 5
   username: mysql
   password: mysql
-  host: 127.0.0.1
+  host: 10.132.97.97
 
 production:
   adapter: mysql2
@@ -39,4 +39,4 @@ production:
   pool: 5
   username: mysql
   password: mysql
-  host: 127.0.0.1
+  host: 10.132.97.97

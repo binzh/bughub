@@ -1,0 +1,8 @@
+<hr>
+<%= simple_form_for @comment do |comment| %>
+    <%= comment.input :user_id, :as => :hidden, :label => false, :input_html => {:value => current_user.id} %>
+    <%= comment.input :model_name, :as => :hidden, :label => false, :input_html => {:value => :bug} %>
+    <%= comment.input :model_id, :as => :hidden, :label => false, :input_html => {:value => @bug.id} %>
+    <%= comment.input :comment, :label => false, :placeholder => t('atwho_placeholder'), :input_html => {:rows => 10, :class => 'input-block atwho'} %>
+    <%= comment.button :submit, t('comment.add_comment'), :class => 'btn btn-info pull-right' %>
+<%- end %>

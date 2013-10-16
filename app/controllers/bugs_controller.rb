@@ -40,8 +40,9 @@ class BugsController < ApplicationController
 
   def show
     @bug=Bug.find(params[:id])
-    @comments=Comment.where(:model_name => :bug, :model_id => @bug.id)
     @extra=Hash.new
+    @comments=Comment.where(:model_name => :bug, :model_id => @bug.id)
+    @comment=Comment.new(params[:comment])
     if @bug.bug_extra
       @bug.bug_extra.extra_fields.each do |key, value|
         @user_field =UserField.find(key)

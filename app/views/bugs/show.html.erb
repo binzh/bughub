@@ -22,7 +22,7 @@
     <div class="span4">
       <div class="btn-group">
         <%- Status.where(:previous_status_id => @bug.status_id).each do |s| %>
-            <%= link_to s.status_name, conversion_bug_status_path(@bug, s), :class => 'btn btn-large btn-inverse' %>
+            <%= link_to s.status_name, conversion_bug_status_path(@bug, s), :class => 'btn btn-inverse' %>
         <%- end %>
       </div>
       <hr>
@@ -31,7 +31,9 @@
       <div>
         <dl class="dl-horizontal">
           <%- @bug.bug_histories.each do |history| %>
-              <dt><%= history.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dt>
+              <dt>
+                <small><%= history.created_at.strftime('%Y/%m/%d %H:%M:%S') %></small>
+              </dt>
               <%- if history.old_value.nil? %>
                   <dd><%= raw t('bug.user_initial_value_to', :user => User.find(history.user_id).username, :field => t('activerecord.attributes.bug.'+history.bug_field), :old_value => history.old_value, :new_value => history.new_value) %></dd>
               <%- else %>
@@ -40,16 +42,19 @@
           <%- end %>
         </dl>
       </div>
-
+      <hr>
       <h4><%= t('activerecord.models.comment') %></h4>
 
       <div>
         <dl>
           <%- @comments.each do |comment| %>
-              <dt><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dt>
-              <dd><%= raw comment.comment %></dd>
+              <dt><%= User.find(comment.user_id).username %>:</dt>
+              <dd>
+                <small><p class='muted'><%= raw comment.comment %></p></small>
+              </dd>
           <%- end %>
         </dl>
+        <%= render 'add_comment' %>
       </div>
     </div>
   </div>

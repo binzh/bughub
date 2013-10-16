@@ -5,22 +5,27 @@ zh-CN:
   back: 返回
   operation: 操作
   clear: 清除
-  field_type: [['用户列表',1],['组列表',2],['用户列表',3],['用户列表',4],['用户列表',5]]
+  close: 关闭
+  atwho_placeholder: 试试像微博一样@别人吧
   model:
     create: 创建
     successfully_created: 创建成功
     successfully_updated: 更新成功
     cannt_be_updated: 无法更新
     query: 查询
+    submit: 提交
   unauthorized:
     default: 您未被允许访问此网址
   user:
     config: 设置
     profile: 用户信息
   bug:
+    field_type: [['用户列表',1],['组列表',2],['用户列表',3],['用户列表',4],['用户列表',5]]
     none: 没有缺陷
     user_change_value_to: "<strong>%{user}</strong>将<em>%{field}</em>从<code>%{old_value}</code>变更为<code>%{new_value}</code>."
     user_initial_value_to: "<strong>%{user}</strong>将<em>%{field}</em>初始为<code>%{new_value}</code>."
+  comment:
+    add_comment: 添加评论
   simple_captcha:
     placeholder: 输入验证码
     label: 输入验证码
