@@ -11,6 +11,7 @@
         <p class="navbar-text pull-right muted">
           <% if user_signed_in? %>
               <strong><%= link_to current_user.username.upcase, root_path, :title => t('user.profile') %></strong>
+              <span class="label label-important"><%= link_to notification_count, notifications_path, :title => t('user.unreaded_notification', :count => notification_count), :class => 'notification-link' %></span>
               <%= link_to content_tag(:i, ' ', :class => 'icon-cogs'), edit_user_registration_path, :title => t('user.config') %>
               <%= link_to content_tag(:i, ' ', :class => 'icon-signout'), destroy_user_session_path, :method => :delete, :data => {:confirm => t('r_u_sure')}, :title => t('devise.navigation.sign_out') %>
           <% else %>

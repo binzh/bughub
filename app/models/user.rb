@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :bugs
   has_many :bug_histories
   has_many :comments
+  has_many :notifications
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

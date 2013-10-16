@@ -16,7 +16,9 @@ Bughub::Application.routes.draw do
     get 'index'
   end
 
-  resources :comments, :onlu => [:create]
+  resources :comments, :only => [:create]
+
+  resources :notifications, :only => [:index]
 
   resources :bugs, :only => [:index, :create, :show] do
     post 'query', :on => :collection

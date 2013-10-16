@@ -19,6 +19,7 @@ zh-CN:
   user:
     config: 设置
     profile: 用户信息
+    unreaded_notification: 您有%{count}条未读通知
   bug:
     field_type: [['用户列表',1],['组列表',2],['用户列表',3],['用户列表',4],['用户列表',5]]
     none: 没有缺陷
