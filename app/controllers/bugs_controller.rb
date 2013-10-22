@@ -39,6 +39,7 @@ class BugsController < ApplicationController
   end
 
   def show
+    @qr=RQRCode::QRCode.new('request.url')
     @bug=Bug.find(params[:id])
     @extra=Hash.new
     @comments=Comment.where(:model_name => :bug, :model_id => @bug.id)

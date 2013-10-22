@@ -3,7 +3,7 @@
 <span class="label label-warning" title='<%= t('activerecord.attributes.bug.priority') %>'><%= Priority.find(@bug.priority).priority_name %></span>
 <span class="label label-success" title='<%= t('activerecord.attributes.bug.user') %>'><%= get_username_by_id(@bug.user_id) %></span>
 <span class="label label-important" title='<%= t('activerecord.attributes.bug.owner') %>'><%= get_username_by_id(@bug.owner) %></span>
-<hr size=1>
+<hr>
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span8">
@@ -25,6 +25,8 @@
             <%= link_to s.status_name, conversion_bug_status_path(@bug, s), :class => 'btn btn-inverse' %>
         <%- end %>
       </div>
+      <hr>
+      <%= render 'layouts/qr_table' %>
       <hr>
       <h4><%= t('activerecord.models.bug_history') %></h4>
 
