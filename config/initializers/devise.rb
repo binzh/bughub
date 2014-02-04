@@ -2,6 +2,8 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
+  config.secret_key = 'ea1bf0108d1c295c4953f3a2cf073610ec0c5e089e4dd4b26750336ebd231b6315607280d79d533d2cd5cf701df53e3327ae03cf29406439068753741c78afa5'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -248,6 +250,5 @@ Devise.setup do |config|
   # config.router_name = :my_engine
   #
   # When using omniauth, Devise cannot automatically set Omniauth path,
-  # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 end

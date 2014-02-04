@@ -2,19 +2,19 @@ source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.14'
 
-gem 'mysql2', '0.3.11'
+gem 'mysql2'
 gem 'rails-i18n'
 #gem 'seedbank'
 group :development do
   gem 'better_errors'
 end
-gem 'devise', '3.0.3'
+gem 'devise'
 gem 'devise-i18n'
 gem 'cancan'
 gem 'simple_form'
 gem 'kaminari'
 gem 'carrierwave'
-gem 'mini_magick', '3.5.0'
+gem 'mini_magick'
 gem 'truncate_html'
 #gem 'rails_admin'
 #gem 'bootstrap-wysihtml5-rails'
