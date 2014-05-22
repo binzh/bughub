@@ -6,8 +6,8 @@ Bughub::Application.configure do
       :port => 25,
       :domain => "126.com",
       :authentication => :login,
-      :user_name => "sdp_qa@126.com",
-      :password => "Welcome123"
+      :user_name => "xxxxxx@126.com",
+      :password => "xxxxxxx"
   }
   config.action_mailer.default_url_options = {:host => 'localhost:8801'}
   # In the development environment your application's code is reloaded on
